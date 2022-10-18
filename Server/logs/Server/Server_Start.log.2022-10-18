@@ -3,3 +3,26 @@
 2022-10-18 16:42:00 info: DB_Connected!!
 2022-10-18 16:42:00 info: Server_Start
 2022-10-18 16:42:30 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-18 17:21:40 info: DB_Connected!!
+2022-10-18 17:21:40 info: Server_Start
+2022-10-18 17:22:10 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-18 17:22:16 info: DB_Connected!!
+2022-10-18 17:22:16 info: Server_Start
+2022-10-18 17:22:46 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-18 17:22:58 info: DB_Connected!!
+2022-10-18 17:22:58 info: Server_Start
+2022-10-18 17:23:25 info: DB_Connected!!
+2022-10-18 17:23:25 info: Server_Start
+2022-10-18 17:23:32 info: DB_Connected!!
+2022-10-18 17:23:32 info: Server_Start
+2022-10-18 17:24:02 info: DB_Connected!!
+2022-10-18 17:24:02 info: Server_Start
+2022-10-18 17:24:18 info: DB_Connected!!
+2022-10-18 17:24:18 info: Server_Start
+2022-10-18 17:24:48 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-18 17:28:46 info: DB_Connected!!
+2022-10-18 17:28:46 info: Server_Start
+2022-10-18 17:29:16 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-18 17:59:03 info: DB_Connected!!
+2022-10-18 17:59:03 info: Server_Start
+2022-10-18 17:59:33 error: connect ECONNREFUSED 127.0.0.1:27017

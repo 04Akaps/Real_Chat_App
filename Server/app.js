@@ -1,10 +1,15 @@
 const express = require("express");
 const cores = require("cors");
+require("dotenv").config();
+const mongoose = require("mongoose");
+const socket = require("socket.io");
 
 const { serverLogger } = require("./logs/winston");
 
-require("dotenv").config();
-const mongoose = require("mongoose");
+const authRoutes = require("./routes/authRoutes");
+const messageRoutes = require("./routes/messageRoutes");
+
+const config = require("./config/config");
 
 const PORT = process.env.PORT;
 
@@ -12,6 +17,9 @@ const app = express();
 
 app.use(cores());
 app.use(express.json());
+
+app.use("/api/auth", authRoutes);
+app.use("/api/messages", messageRoutes);
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -23,4 +31,36 @@ mongoose
 
 const server = app.listen(PORT, () => {
   serverLogger.info("Server_Start");
+});
+
+const io = socket(server, {
+  cors: {
+    origin: config.origin,
+    credentials: true,
+  },
+});
+
+global.onlineUsers = new Map();
+// 변수 또는 전체 전역으로 사용하는 방법
+
+io.on("connection", (socket) => {
+  // on : 현재 접속해 있는 클라이언트로부터 메시지를 수신하는 코드
+  // connection : 기본으로 발생하는 이벤트로 사용자가 웹사이트에 접속하면 발생한다.
+  global.chatSocket = socket;
+
+  socket.on("add-user", (userId) => {
+    // Client의 Char에 보면 add-user를 emit하게 되고 이를 저장하게 된다.
+    console.log(userId);
+    onlineUsers.set(userId, socket.id);
+  });
+
+  socket.on("send-msg", (data) => {
+    // Clinet의 ChatContain을 확인하면 메시지를 보내게 된다.
+    console.log(data);
+    const sendUserSocket = onlineUsers.get(data.to);
+
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-receive", data.msg);
+    }
+  });
 });
