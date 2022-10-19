@@ -80,7 +80,7 @@ module.exports.setAvatar = async (req, res, next) => {
       },
       { new: true }
     );
-    userLogger.info(`User setAvatar!! : ${userId}, ${avatarImage}`);
+    userLogger.info(`User setAvatar!! : ${userId}`);
     return res.json({
       isSet: userData.isAvatarImageSet,
       image: userData.avatarImage,

@@ -61,6 +61,8 @@ io.on("connection", (socket) => {
 
     if (sendUserSocket) {
       socket.to(sendUserSocket).emit("msg-receive", data.msg);
+      // emit은 특정 클라이언트에게 메시지를 전송하는 것을 의미합니다.
+      // 이떄 to가 없다면 모든 클라이언트에게 메시지를 전송하게 됩니다.
     }
   });
 });
