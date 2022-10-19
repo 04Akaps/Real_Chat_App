@@ -1,5 +1,5 @@
 const express = require("express");
-const cores = require("cors");
+const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const socket = require("socket.io");
@@ -15,7 +15,11 @@ const PORT = process.env.PORT;
 
 const app = express();
 
-app.use(cores());
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
