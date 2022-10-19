@@ -1,3 +1,4 @@
+const { messageLogger } = require("../logs/winston");
 const Messages = require("../models/messageModel");
 
 module.exports.getMessages = async (req, res, next) => {
@@ -18,6 +19,7 @@ module.exports.getMessages = async (req, res, next) => {
     });
     res.json(projectedMessages);
   } catch (ex) {
+    messageLogger.error(`getMessages Error : ${ex.message}`);
     next(ex);
   }
 };
@@ -31,9 +33,14 @@ module.exports.addMessage = async (req, res, next) => {
       sender: from,
     });
 
+    messageLogger.info(
+      `AddMessage from : ${from}, to : ${to}, message : ${message}`
+    );
+
     if (data) return res.json({ msg: "Message added successfully." });
     else return res.json({ msg: "Failed to add message to the database" });
   } catch (ex) {
+    messageLogger.error(`addMessage Error : ${ex.message}`);
     next(ex);
   }
 };
