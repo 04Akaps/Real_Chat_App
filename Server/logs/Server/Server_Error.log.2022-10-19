@@ -8,3 +8,10 @@
 2022-10-19 09:11:39 error: connect ECONNREFUSED 127.0.0.1:27017
 2022-10-19 09:12:12 error: connect ECONNREFUSED 127.0.0.1:27017
 2022-10-19 09:14:01 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-19 09:26:31 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-19 09:31:16 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-19 09:31:49 error: connect ECONNREFUSED 127.0.0.1:27017
+2022-10-19 09:39:17 error: Protocol and host list are required in "mongodb+srv://sdl155:t2yq9m!@@realchatapp.oronxh7.mongodb.net/?retryWrites=true&w=majority"
+2022-10-19 09:40:15 error: Protocol and host list are required in "mongodb+srv://sdl155:t2yq9m!@@realchatapp.oronxh7.mongodb.net/?retryWrites=true&w=majority"
+2022-10-19 09:42:04 error: Protocol and host list are required in "mongodb+srv://sdl155:t2yq9m!@@realchatapp.oronxh7.mongodb.net/?retryWrites=true&w=majority"
+2022-10-19 09:43:19 error: URI must include hostname, domain name, and tld

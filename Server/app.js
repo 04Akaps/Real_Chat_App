@@ -17,16 +17,16 @@ const app = express();
 
 app.use(cores());
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+  .connect(process.env.MONGO_URL, {})
+  .then(() => {
+    serverLogger.info("DB_Connected!!");
   })
-  .then(serverLogger.info("DB_Connected!!"))
   .catch((err) => serverLogger.error(err.message));
 
 const server = app.listen(PORT, () => {
